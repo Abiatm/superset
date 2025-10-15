@@ -295,3 +295,5 @@ USER root
 RUN uv pip install .[duckdb]
 USER superset
 CMD ["/app/docker/entrypoints/docker-ci.sh"]
+COPY superset_config.py /app/pythonpath/superset_config.py
+
