@@ -145,6 +145,11 @@ RUN if [ "${BUILD_TRANSLATIONS}" = "true" ]; then \
 # Python APP common layer
 ######################################################################
 FROM python-base AS python-common
+# Install PostgreSQL driver
+RUN pip install psycopg2-binary
+
+# Copy your secure config
+COPY superset_config.py /app/pythonpath/superset_config.py
 
 # Re-declare build arg to receive it in this stage
 ARG LOAD_EXAMPLES_DUCKDB
